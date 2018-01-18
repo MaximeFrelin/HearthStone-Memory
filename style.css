@@ -1,0 +1,7 @@
+body {
+    background-image: url("src/fond/fond.jpg");
+}
+
+#plateau_carte {
+    margin-left: 35%;
+}
