@@ -1,4 +1,4 @@
-this.duoCarte = [];
+var duoCarte = [];
 
 function afficherCarte(id) {
     var indiceCarte = trouverIndiceCarte(id);
@@ -8,6 +8,7 @@ function afficherCarte(id) {
 }
 
 function cacherCarte(id) {
+    console.log(id);
     var carteARetourner = document.getElementById(id).src = "src/carte/dos.png";
 }
 
@@ -42,7 +43,6 @@ function comparerCarte(indiceCarte) {
     else if(duoCarte[1] == null)
         duoCarte[1] = indiceCarte;
     if(duoCarte[0] != null && duoCarte[1] != null) {
-        console.log(duoCarte[0] != duoCarte[1])
         if(duoCarte[0] != duoCarte[1]) {
             var indiceCarte1 = trouverIndiceCarte(duoCarte[0]);
             var indiceCarte2 = trouverIndiceCarte(duoCarte[1]);

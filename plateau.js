@@ -1,17 +1,29 @@
 var plateau = document.getElementById("plateau_carte");
 var taillePlateau = 4;
-var tableauCarte = new Array("carte1/1", "carte2/2", "carte3/3", "carte4/4", "carte5/5", "carte6/6", "carte7/7", "carte8/8","carte9/1", "carte10/2", "carte11/3", "carte12/4", "carte13/5", "carte14/6", "carte15/7", "carte16/8");
+var tableauCarte = []
+
+function construireTableauCarte(tailleGrille) {
+    var carte = 1;
+    for(var i=0 ; i <  tailleGrille;i++) {
+        tableauCarte[i] = new Carte("carte"+i, "indice"+carte);
+        if(carte == 8)
+            carte = 1;
+        else
+            carte++;
+    }
+}
 
 /**
  * Fonction pour construire le plateau de jeu
  */
 function construirePlateau() {
-    this.carteTotal = "";
+    construireTableauCarte(16);
     melange(tableauCarte);
+    this.carteTotal = "";
     for (i = 0; i < Math.pow(taillePlateau,2); i++) {
         if (i%taillePlateau == 0)
             carteTotal += " </br>";
-        carteTotal += "<input onclick='afficherCarte(this.id)' type='image' src='src/carte/dos.png' height='200px' weight='100' id=" + tableauCarte[i] + ">";             
+        carteTotal += "<img src='src/carte/dos.png' indice='" + tableauCarte[i].getIdCarte() + "' height=175 width=120>";             
     }
     plateau.innerHTML = carteTotal;
 }
