@@ -26,6 +26,7 @@ function construirePlateau() {
         carteTotal += "<img onclick=afficherCarte(this) src='src/carte/dos.png' indice='" + tableauCarte[i].getIdCarte() + "' height=175 width=120>";             
     }
     plateau.innerHTML = carteTotal;
+    passerTableauJeux(tableauCarte);
 }
 
 /**

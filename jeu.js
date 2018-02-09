@@ -1,4 +1,4 @@
-var duoCarte = [];
+var tableauCarte = [];
 
 function afficherCarte(id) {
     var indiceCarte = trouverIndiceCarte(id);
@@ -8,11 +8,10 @@ function afficherCarte(id) {
 }
 
 function cacherCarte(id) {
-    console.log(id);
     var carteARetourner = document.getElementById(id).src = "src/carte/dos.png";
 }
 
-function trouverIndiceCarte(nomComplet) {
+function trouverCarte(nomComplet) {
     var indiceCarte = nomComplet.split("/");
     return indiceCarte[1];
 }
@@ -63,4 +62,9 @@ function attendre(milisecondes) {
  
     while (currentTime + milisecondes >= new Date().getTime()) {
     }
+ }
+
+ function passerTableauJeux(tableauCarteBis) {
+     tableauCarte = tableauCarteBis;
+     console.log(tableauCarte);
  }
