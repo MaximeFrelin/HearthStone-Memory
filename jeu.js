@@ -1,10 +1,13 @@
 var tableauCarte = [];
 
-function afficherCarte(id) {
-    var indiceCarte = trouverIndiceCarte(id);
-    var src = constructionSrc(indiceCarte);
-    var carteARetourner = document.getElementById(id).src = src;
-    comparerCarte(id);
+function afficherCarte(imageCarte) {
+    var indiceCarte = imageCarte.dataset.indice;
+    for(i of tableauCarte) {
+        if (indiceCarte == i.idCarte) {
+            imageCarte.src = i.cheminImage;
+            i.estRetourne = true;
+        }
+    }
 }
 
 function cacherCarte(id) {
