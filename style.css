@@ -5,3 +5,8 @@ body {
 #plateau_carte {
     margin-left: 35%;
 }
+
+#indication_vie {
+    color: red;
+    margin-left: 42%;
+}

@@ -23,7 +23,7 @@ function construirePlateau() {
     for (i = 0; i < Math.pow(taillePlateau,2); i++) {
         if (i%taillePlateau == 0)
             carteTotal += " </br>";
-        carteTotal += "<img onclick=afficherCarte(this) src='src/carte/dos.png' data-indice='" + tableauCarte[i].getIdCarte() + "' height=175 width=120>";             
+        carteTotal += "<img onclick=comparerCarte(this) src='src/carte/dos.png' data-indice='" + tableauCarte[i].getIdCarte() + "' height=175 width=120>";             
     }
     plateau.innerHTML = carteTotal;
     passerTableauJeux(tableauCarte);
