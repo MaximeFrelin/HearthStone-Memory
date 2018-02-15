@@ -5,7 +5,7 @@ var tableauCarte = []
 function construireTableauCarte(tailleGrille) {
     var carte = 1;
     for(var i=0 ; i <  tailleGrille;i++) {
-        tableauCarte[i] = new Carte("carte"+i, carte, "src/carte/carte"+carte+".png");
+        tableauCarte[i] = new Carte("carte"+ i, carte, "src/carte/carte"+carte+".png");
         if(carte == 8)
             carte = 1;
         else
