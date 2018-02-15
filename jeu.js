@@ -3,7 +3,10 @@ var duoCarte = [];
 var duoImg = [];
 var AffichageVieRestante = document.getElementById("nombre_vie");
 var vieRestante = 5;
+var essai = 0;
 var peutJouer = true;
+var chronometre = new Chronometre();
+var chronoLance = false;
 
 function afficherCarte(imageCarte) {
     var indiceCarte = imageCarte.dataset.indice;
@@ -54,6 +57,12 @@ function constructionSrc(indiceCarte) {
 }
 
 function comparerCarte(imageCarte) {
+    if(!chronoLance) {
+        chronometre.start();
+        console.log("chrono");
+        chronoLance = true;
+    }
+
     if(!peutJouer)
         return -1;
     var indiceCarte = imageCarte.dataset.indice;
@@ -84,6 +93,7 @@ function comparerCarte(imageCarte) {
                 cacherCarte(duoImg[0], duoCarte[0], duoImg[1], duoCarte[1]);
             }, 400);
         }
+        essai++;
     }
     afficherCarte(imageCarte);
     verifierGagnant();
@@ -91,15 +101,17 @@ function comparerCarte(imageCarte) {
 
 function verifierGagnant() {
     if(vieRestante <= 0) {
-        alert("Vous avez perdu");
+        alert("Désolé, vous avez perdu, cliquez sur nouvelle partie pour recommencer une nouvelle partie");
         peutJouer = false;
+        chronometre.stop()
     }
 
     for(i of tableauCarte) {
         if(!i.estRetourne)
             return;
     }
-    console.log("Gagné");
+    chronometre.stop()
+    finDePartie();
 }
 
  function passerTableauJeux(tableauCarteBis) {
@@ -108,4 +120,14 @@ function verifierGagnant() {
 
  function nouvellePartie() {
      window.location.reload();
+ }
+
+ function finDePartie() {
+    var chrono = chronometre.getChrono();
+    var nomPersonne = prompt("Félicitation, vous avez gagné en " + essai + " coups et en " + chrono + + "secondes" + "\n\n Veuillez rentrer un nom pour le nouveau score : ", "Harry Potter");
+    if (nomPersonne == null || nomPersonne == "") {
+        txt = "UserX";
+    } else {
+        // Renplir base de données
+    }
  }
