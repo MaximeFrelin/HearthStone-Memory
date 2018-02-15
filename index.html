@@ -6,15 +6,20 @@
     </head>
 
     <body>
-        <button type="button" id="bouton_nouvelle_partie">Nouvelle Partie</button>
+        <button onclick="nouvellePartie()" type="button" id="bouton_nouvelle_partie">Nouvelle Partie</button>
         <button type="button" id="bouton_score">Score</button>
+
         <div id="indication_vie">
             <span><b>Vie restantes : </b></span>
             <b><span id="nombre_vie">3</span></b>
         </div>
+        
         <div id="plateau_carte"><img src="src/carte/dos.png"></div>
+
+        <span id="timer"></span>
     </body>
     <script src="Carte.js" type="text/javascript"></script>
     <script src="Jeu.js" type="text/javascript"></script>
     <script src="Plateau.js" type="text/javascript"></script>
+    <script src="Chronometre.js" type="text/javascript"></script>
 </html>

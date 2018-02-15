@@ -2,7 +2,7 @@ var tableauCarte = [];
 var duoCarte = [];
 var duoImg = [];
 var AffichageVieRestante = document.getElementById("nombre_vie");
-var vieRestante = 3;
+var vieRestante = 5;
 var peutJouer = true;
 
 function afficherCarte(imageCarte) {
@@ -102,13 +102,10 @@ function verifierGagnant() {
     console.log("Gagné");
 }
 
-function attendre(milisecondes) {
-    var currentTime = new Date().getTime();
- 
-    while (currentTime + milisecondes >= new Date().getTime()) {
-    }
- }
-
  function passerTableauJeux(tableauCarteBis) {
      tableauCarte = tableauCarteBis;
+ }
+
+ function nouvellePartie() {
+     window.location.reload();
  }
