@@ -1,21 +1,20 @@
 function Chronometre() {
-    var startTime = Date.now();
+    var debutChrono = Date.now();
     var minute = 0; var secondes = 0; var milisecondes = 0;
     var chrono;
 
     this.start = function() {
         chrono = setInterval(function() {
-            milisecondes = Date.now() - startTime;
+            milisecondes = Date.now() - debutChrono;
             if(milisecondes >= 1000) {
                 secondes++
-                startTime = Date.now();
+                debutChrono = Date.now();
             }
             if(secondes >= 60) {
                 secondes = 0;
                 minute++
-                startTime = Date.now();
+                debutChrono = Date.now();
             }
-            console.log(minute + ":" + secondes + ":" + milisecondes);
             document.getElementById("chronometre").innerHTML = minute + ":" + secondes + ":" + milisecondes;
         }, 10);
     }
